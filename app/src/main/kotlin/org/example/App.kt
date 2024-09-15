@@ -1,14 +1,13 @@
 package org.example
 
-import java.io.File
-
 class App {
-    fun findMaxCalories(inputFile: String): Int {
-        val input = File(inputFile).readText()
+    fun findMaxCalories(): Int {
+        val input = this::class.java.getResource("/input.txt")?.readText()
+            ?: throw IllegalStateException("Input file not found")
         return input.split("\n\n")
             .map { elf ->
                 elf.lines()
-                    .sumOf { it.toInt() }
+                    .sumOf { it.toIntOrNull() ?: 0 }
             }
             .maxOrNull() ?: 0
     }
@@ -16,6 +15,6 @@ class App {
 
 fun main() {
     val app = App()
-    val maxCalories = app.findMaxCalories("input.txt")
+    val maxCalories = app.findMaxCalories()
     println("The Elf carrying the most Calories has a total of $maxCalories Calories.")
 }
