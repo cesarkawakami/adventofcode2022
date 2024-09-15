@@ -37,6 +37,15 @@ testing {
     }
 }
 
+tasks.test {
+    useJUnitPlatform()
+    filter {
+        if (project.hasProperty("day")) {
+            includeTestsMatching("aoc22.day${project.property("day")}.*")
+        }
+    }
+}
+
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
@@ -46,5 +55,5 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "aoc22.AppKt"
+    mainClass = "aoc22.day01.Day01Kt"
 }

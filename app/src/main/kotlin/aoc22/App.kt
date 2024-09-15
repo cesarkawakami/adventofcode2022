@@ -1,6 +1,6 @@
-package aoc22
+package aoc22.day01
 
-class App {
+class Day01 {
     fun readCalories(): List<Int> {
         val input = this::class.java.getResource("/input.txt")?.readText()
             ?: throw IllegalStateException("Input file not found")
