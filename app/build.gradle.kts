@@ -35,17 +35,7 @@ testing {
 }
 
 tasks.test {
-    useJUnitPlatform {
-        listeners {
-            // Custom test listener to sort test classes
-            register(object : TestListener {
-                override fun beforeSuite(suite: TestDescriptor) {}
-                override fun afterSuite(suite: TestDescriptor, result: TestResult) {}
-                override fun beforeTest(testDescriptor: TestDescriptor) {}
-                override fun afterTest(testDescriptor: TestDescriptor, result: TestResult) {}
-            })
-        }
-    }
+    useJUnitPlatform()
     testLogging {
         events("passed", "skipped", "failed", "standardOut", "standardError")
         showExceptions = true
@@ -53,10 +43,6 @@ tasks.test {
         showStackTraces = true
         exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
         showStandardStreams = true
-    }
-    // Sort test classes by their names
-    filter {
-        sort = org.gradle.api.tasks.testing.TestFilter.Sort.ALPHABETIC
     }
 }
 
