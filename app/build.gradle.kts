@@ -11,7 +11,7 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
 
     // Apply the ktlint plugin
-    id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
 }
 
 repositories {
@@ -36,11 +36,6 @@ testing {
 
 tasks.test {
     useJUnitPlatform()
-    filter {
-        if (project.hasProperty("day")) {
-            includeTestsMatching("aoc22.day${project.property("day")}.*")
-        }
-    }
     testLogging {
         events("passed", "skipped", "failed", "standardOut", "standardError")
         showExceptions = true
@@ -55,20 +50,5 @@ tasks.test {
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
-    }
-}
-
-ktlint {
-    version.set("0.50.0")
-    verbose.set(true)
-    outputToConsole.set(true)
-    coloredOutput.set(true)
-    reporters {
-        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
-        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.JSON)
-    }
-    filter {
-        exclude("**/generated/**")
-        include("**/kotlin/**")
     }
 }

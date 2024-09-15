@@ -6,7 +6,8 @@ import kotlin.test.assertEquals
 
 class Day01Test {
     private val day01 = Day01()
-    private val testInput = """
+    private val testInput =
+        """
         1000
         2000
         3000
@@ -21,7 +22,7 @@ class Day01Test {
         9000
 
         10000
-    """.trimIndent()
+        """.trimIndent()
     private val calories = day01.readCalories(testInput)
 
     private val inputFile = File("src/test/resources/day01_input.txt")

@@ -4,24 +4,31 @@ import aoc22.GenericDay
 
 class Day02 : GenericDay {
     private enum class Shape(val score: Int) {
-        ROCK(1), PAPER(2), SCISSORS(3)
+        ROCK(1),
+        PAPER(2),
+        SCISSORS(3),
     }
 
-    private fun parseShape(char: Char): Shape = when (char) {
-        'A', 'X' -> Shape.ROCK
-        'B', 'Y' -> Shape.PAPER
-        'C', 'Z' -> Shape.SCISSORS
-        else -> throw IllegalArgumentException("Invalid shape: $char")
-    }
-
-    private fun roundScore(opponent: Shape, you: Shape): Int {
-        val outcome = when {
-            opponent == you -> 3
-            (opponent == Shape.ROCK && you == Shape.PAPER) ||
-            (opponent == Shape.PAPER && you == Shape.SCISSORS) ||
-            (opponent == Shape.SCISSORS && you == Shape.ROCK) -> 6
-            else -> 0
+    private fun parseShape(char: Char): Shape =
+        when (char) {
+            'A', 'X' -> Shape.ROCK
+            'B', 'Y' -> Shape.PAPER
+            'C', 'Z' -> Shape.SCISSORS
+            else -> throw IllegalArgumentException("Invalid shape: $char")
         }
+
+    private fun roundScore(
+        opponent: Shape,
+        you: Shape,
+    ): Int {
+        val outcome =
+            when {
+                opponent == you -> 3
+                (opponent == Shape.ROCK && you == Shape.PAPER) ||
+                    (opponent == Shape.PAPER && you == Shape.SCISSORS) ||
+                    (opponent == Shape.SCISSORS && you == Shape.ROCK) -> 6
+                else -> 0
+            }
         return outcome + you.score
     }
 
@@ -47,12 +54,13 @@ class Day02 : GenericDay {
         return rounds.sumOf { round ->
             val (opponentChar, resultChar) = round.split(" ")
             val opponent = parseShape(opponentChar[0])
-            val you = when (resultChar[0]) {
-                'X' -> Shape.values()[(opponent.ordinal + 2) % 3] // Lose
-                'Y' -> opponent // Draw
-                'Z' -> Shape.values()[(opponent.ordinal + 1) % 3] // Win
-                else -> throw IllegalArgumentException("Invalid result: ${resultChar[0]}")
-            }
+            val you =
+                when (resultChar[0]) {
+                    'X' -> Shape.values()[(opponent.ordinal + 2) % 3] // Lose
+                    'Y' -> opponent // Draw
+                    'Z' -> Shape.values()[(opponent.ordinal + 1) % 3] // Win
+                    else -> throw IllegalArgumentException("Invalid result: ${resultChar[0]}")
+                }
             roundScore(opponent, you)
         }.toString()
     }

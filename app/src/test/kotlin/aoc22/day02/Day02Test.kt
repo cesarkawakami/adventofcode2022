@@ -6,11 +6,12 @@ import kotlin.test.assertEquals
 
 class Day02Test {
     private val day02 = Day02()
-    private val testInput = """
+    private val testInput =
+        """
         A Y
         B X
         C Z
-    """.trimIndent()
+        """.trimIndent()
 
     private val inputFile = File("src/test/resources/day02_input.txt")
     private val fileInput = inputFile.readText()
