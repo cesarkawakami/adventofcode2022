@@ -1,4 +1,4 @@
-package org.example
+package aoc22
 
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.options.option
