@@ -50,7 +50,6 @@ java {
     }
 }
 
-
 ktlint {
     version.set("0.50.0")
     verbose.set(true)

@@ -1,8 +1,8 @@
 package aoc22.day01
 
+import java.io.File
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import java.io.File
 
 class Day01Test {
     private val day01 = Day01()
