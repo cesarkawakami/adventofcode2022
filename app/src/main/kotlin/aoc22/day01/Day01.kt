@@ -1,9 +1,7 @@
 package aoc22.day01
 
 class Day01 {
-    fun readCalories(): List<Int> {
-        val input = this::class.java.getResource("/input.txt")?.readText()
-            ?: throw IllegalStateException("Input file not found")
+    fun readCalories(input: String): List<Int> {
         return input.split("\n\n")
             .map { elf ->
                 elf.lines()

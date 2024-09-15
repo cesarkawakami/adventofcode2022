@@ -5,7 +5,23 @@ import kotlin.test.assertEquals
 
 class Day01Test {
     private val day01 = Day01()
-    private val calories = day01.readCalories()
+    private val testInput = """
+        1000
+        2000
+        3000
+
+        4000
+
+        5000
+        6000
+
+        7000
+        8000
+        9000
+
+        10000
+    """.trimIndent()
+    private val calories = day01.readCalories(testInput)
 
     @Test
     fun testPart1() {

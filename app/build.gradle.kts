@@ -10,9 +10,6 @@ plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     alias(libs.plugins.kotlin.jvm)
 
-    // Apply the application plugin to add support for building a CLI application in Java.
-    application
-
     // Apply the ktlint plugin
     id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
 }
@@ -23,11 +20,8 @@ repositories {
 }
 
 dependencies {
-    // This dependency is used by the application.
+    // This dependency is used by the library.
     implementation(libs.guava)
-
-    // Add Clikt for command-line parsing
-    implementation("com.github.ajalt.clikt:clikt:3.5.2")
 }
 
 testing {
@@ -56,10 +50,6 @@ java {
     }
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = "aoc22.day01.Day01Kt"
-}
 
 ktlint {
     version.set("0.50.0")
