@@ -24,7 +24,7 @@ class Day01Test {
     """.trimIndent()
     private val calories = day01.readCalories(testInput)
 
-    private val inputFile = File("src/main/resources/input.txt")
+    private val inputFile = File("src/test/resources/day01_input.txt")
     private val fileInput = inputFile.readText()
     private val fileCalories = day01.readCalories(fileInput)
 

@@ -1,0 +1,1 @@
+[Contents of the original input.txt file should be placed here]
