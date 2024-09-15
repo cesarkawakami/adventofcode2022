@@ -43,12 +43,12 @@ class Day01Test {
     @Test
     fun testPart1WithInputFile() {
         val result = day01.findMaxCalories(fileCalories)
-        assertEquals(0, result, "The Elf carrying the most Calories from input file")
+        assertEquals(69912, result, "The Elf carrying the most Calories from input file")
     }
 
     @Test
     fun testPart2WithInputFile() {
         val result = day01.findTopThreeCalories(fileCalories)
-        assertEquals(0, result, "The top three Elves from input file")
+        assertEquals(208180, result, "The top three Elves from input file")
     }
 }
