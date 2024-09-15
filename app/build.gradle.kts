@@ -25,7 +25,7 @@ repositories {
 dependencies {
     // This dependency is used by the application.
     implementation(libs.guava)
-    
+
     // Add Clikt for command-line parsing
     implementation("com.github.ajalt.clikt:clikt:3.5.2")
 }
